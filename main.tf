@@ -330,7 +330,7 @@ module "server_subnet_1" {
 module "asg" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.10.0"
-  
+
   # Autoscaling group
   name = "example-asg"
 
@@ -339,9 +339,9 @@ module "asg" {
   desired_capacity          = 1
   wait_for_capacity_timeout = 0
   health_check_type         = "EC2"
-  image_id = "ami-03a6eaae9938c858c"
+  image_id                  = "ami-03a6eaae9938c858c"
   vpc_zone_identifier       = [aws_subnet.public_subnets["public_subnet_1"].id]
-  instance_type = "t2.micro"
+  instance_type             = "t2.micro"
 }
 
 output "size" {

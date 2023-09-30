@@ -21,4 +21,29 @@ terraform {
       version = "4.0.4"
     }
   }
+
+
+  #backend "s3" {
+  #bucket         = "config-bucket-592406580033"
+  #key            = "arn:aws:s3:::config-bucket-592406580033"
+  #region         = "us-east-1"
+  ##dynamodb_table = "terraform-studies-db"
+  ##encrypt        = true
+  #}
+
+  #backend "http" {
+  #address        = "http://localhost:5000/terraform_state/4cdd0c76-d78b-11e9-9bea-db9cd8374f3a"
+  #lock_address   = "http://localhost:5000/terraform_lock/4cdd0c76-d78b-11e9-9bea-db9cd8374f3a"
+  #lock_method    = "PUT"
+  #unlock_address = "http://localhost:5000/terraform_lock/4cdd0c76-d78b-11e9-9bea-db9cd8374f3a"
+  #unlock_method  = "DELETE"
+  #}
+
+  #cloud {
+  #organization = "TestLocalTerraform"
+
+  #workspaces {
+  #name = "localstudiesterraform"
+  #}
+  #}
 }
