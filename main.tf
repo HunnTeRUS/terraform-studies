@@ -302,7 +302,7 @@ resource "aws_instance" "web_server" {
 # Terraform Resource Block - To Build EC2 instance in Public Subnet
 resource "aws_instance" "web_server_2" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = var.web_server_2_instance_type
   subnet_id     = aws_subnet.public_subnets["public_subnet_2"].id
   tags = {
     Name = "Web EC2 Server 2"
@@ -344,12 +344,13 @@ module "asg" {
   instance_type             = "t2.micro"
 }
 
-output "size" {
-  value = module.server.size
+output "phone_number_out" {
+  value     = var.phone_number
+  sensitive = true
 }
 
-output "public_ip" {
-  value = module.server.public_ip
+output "size" {
+  value = module.server.size
 }
 
 output "public_dns" {

@@ -28,6 +28,11 @@ variable "private_subnets" {
   }
 }
 
+variable "web_server_2_instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+
 variable "public_subnets" {
   default = {
     "public_subnet_1" = 1
@@ -39,17 +44,22 @@ variable "public_subnets" {
 variable "variables_sub_cidr" {
   description = "CIDR Block for the variables subnet"
   type        = string
-  default     = "10.0.202.0/24"
+  #default     = "10.0.202.0/24"
 }
 
 variable "variables_sub_az" {
   description = "Availability Zone used variables subnet"
   type        = string
-  default     = "us-east-1a"
+  #default     = "us-east-1a"
 }
 
 variable "variables_sub_auto_ip" {
   description = "Set automatic ip assigment for variables subnet"
   type        = bool
-  default     = true
+  #default     = true
+}
+
+variable "phone_number" {
+  type = string
+  sensitive = true
 }
